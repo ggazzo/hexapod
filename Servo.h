@@ -19,7 +19,7 @@
 class Servo {
 public:
     Servo(int a);
-    void setDregree(char d);
+    void setDregree(unsigned char d);
 
     static bool init() {
         Wire.begin();
