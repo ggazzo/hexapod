@@ -16,25 +16,25 @@
 #define PCA9685_MODE1 0x00 // location for Mode1 register address
 #define PCA9685_MODE2 0x01 // location for Mode2 reigster address
 #define PCA9685_LED0 0x06 // location for start of LED0 registers
-class Servo {
+class ServoI2C {
 public:
-    Servo(int a);
+    ServoI2C(int a);
     void setDregree(unsigned char d);
 
     static bool init() {
         Wire.begin();
     	delay(1);
-    	Servo::writeRegister(PCA9685_MODE1, (byte)0x01);	// reset the device
+    	ServoI2C::writeRegister(PCA9685_MODE1, (byte)0x01);	// reset the device
 
     	delay(1);
     	bool isOnline;
-    	if (Servo::readRegister(PCA9685_MODE1)==0x01)	{
+    	if (ServoI2C::readRegister(PCA9685_MODE1)==0x01)	{
     		isOnline = true;
     	} else {
     		isOnline = false;
     	}
-    	Servo::writeRegister(PCA9685_MODE1, (byte)B10100000);	// set up for auto increment
-    	Servo::writeRegister(PCA9685_MODE2, (byte)0x10);	// set to output
+    	ServoI2C::writeRegister(PCA9685_MODE1, (byte)B10100000);	// set up for auto increment
+    	ServoI2C::writeRegister(PCA9685_MODE2, (byte)0x10);	// set to output
 
     	return isOnline;
     }

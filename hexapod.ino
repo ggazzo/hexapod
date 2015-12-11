@@ -2,10 +2,10 @@
 #include <Wire.h>
 #include "Servo.h"
 
-Servo s(0);
+ServoI2C s(0);
 void setup () {
     Wire.begin();
-    Servo::init();
+    ServoI2C::init();
 }
 
 void loop () {
