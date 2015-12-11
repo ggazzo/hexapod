@@ -22,6 +22,7 @@ public:
     void setDregree(char d);
 
     static bool init() {
+        Wire.begin();
     	delay(1);
     	Servo::writeRegister(PCA9685_MODE1, (byte)0x01);	// reset the device
 
