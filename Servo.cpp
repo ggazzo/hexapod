@@ -5,7 +5,7 @@ Servo::Servo(int a) {
 };
 
 
-void Servo::setDregree(char d){
+void Servo::setDregree(unsigned char d){
     this->degree = d % (180  + 1);
 
     word v = map(d, 0, 180, 0, 4095);// sends one byte
